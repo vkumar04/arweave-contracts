@@ -81,6 +81,7 @@ function transfer(state, action) {
 
 function balance(state, action) {
   const balances = state.balances;
+  const ticker = state.ticker;
   const input = action.input;
   const caller = action.caller;
 
@@ -90,7 +91,6 @@ function balance(state, action) {
   } else {
     target = input.target;
   }
-  const ticker = state.ticker;
 
   if (typeof target !== "string") {
     throw new ContractError("Must specify target to get balance for.");
